@@ -1,0 +1,515 @@
+<Error>Level:Bad <Exception>Happened at2016-07-18 11:24:23 AM
+HResult:-2146233088 Source:DiscordBot2.0 Site:Void _Bu_Disconnect_Click(System.Object, System.EventArgs) Message:System test
+ StackTrace:   at DiscordBot2._0.Form1._Bu_Disconnect_Click(Object sender, EventArgs e) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 417
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-07-20 7:49:21 PM
+HResult:-2146233088 Source:DiscordBot2.0 Site:Void _Bu_Excute_Click(System.Object, System.EventArgs) Message:This is a second test
+ StackTrace:   at DiscordBot2._0.Form1._Bu_Excute_Click(Object sender, EventArgs e) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 589
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-07-21 3:28:32 PM
+HResult:-2146233080 Source:DiscordBot2.0 Site:Void _Bu_Excute_Click(System.Object, System.EventArgs) Message:Index was outside the bounds of the array.
+ StackTrace:   at DiscordBot2._0.Form1._Bu_Excute_Click(Object sender, EventArgs e) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 632
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-07-27 2:19:28 PM
+HResult:-2146233079 Source:System Site:System.Net.WebResponse GetResponse() Message:The remote server returned an error: (404) Not Found.
+ StackTrace:   at System.Net.HttpWebRequest.GetResponse()
+   at CleverBot.CleverBotClient.SetNick(String _Nick) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\CleverBot.cs:line 75
+   at DiscordBot2._0.DiscordBotWorker.Connect() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 120
+   at DiscordBot2._0.DiscordBotWorker..ctor(Form1 ControlPannel, String[] _GamesToPlay, Dictionary`2 _SoundBoardBinding) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 114
+   at DiscordBot2._0.Form1._Bu_Connect_Click(Object sender, EventArgs e) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 445
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-07-27 2:19:31 PM
+HResult:-2146233079 Source:System Site:System.Net.WebResponse GetResponse() Message:The remote server returned an error: (404) Not Found.
+ StackTrace:   at System.Net.HttpWebRequest.GetResponse()
+   at CleverBot.CleverBotClient.SetNick(String _Nick) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\CleverBot.cs:line 75
+   at DiscordBot2._0.DiscordBotWorker.Connect() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 120
+   at DiscordBot2._0.DiscordBotWorker..ctor(Form1 ControlPannel, String[] _GamesToPlay, Dictionary`2 _SoundBoardBinding) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 114
+   at DiscordBot2._0.Form1._Bu_Connect_Click(Object sender, EventArgs e) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 445
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-08-13 12:37:29 PM
+HResult:-2146232000 Source:System.Xml Site:Void Throw(System.Exception) Message:The 'meta' start tag on line 11 position 6 does not match the end tag of 'head'. Line 35, position 3.
+ StackTrace:   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.Throw(String res, String[] args)
+   at System.Xml.XmlTextReaderImpl.ThrowTagMismatch(NodeData startTag)
+   at System.Xml.XmlTextReaderImpl.ParseEndElement()
+   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+   at System.Xml.XmlTextReaderImpl.Read()
+   at System.Xml.Linq.XContainer.ReadContentFrom(XmlReader r)
+   at System.Xml.Linq.XContainer.ReadContentFrom(XmlReader r, LoadOptions o)
+   at System.Xml.Linq.XDocument.Load(XmlReader reader, LoadOptions options)
+   at System.Xml.Linq.XDocument.Parse(String text, LoadOptions options)
+   at RestSharp.Deserializers.XmlDeserializer.Deserialize[T](IRestResponse response)
+   at RestSharp.RestClient.Deserialize[T](IRestRequest request, IRestResponse raw)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-08-13 12:37:32 PM
+HResult:-2146232000 Source:System.Xml Site:Void Throw(System.Exception) Message:The 'meta' start tag on line 11 position 6 does not match the end tag of 'head'. Line 35, position 3.
+ StackTrace:   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.Throw(String res, String[] args)
+   at System.Xml.XmlTextReaderImpl.ThrowTagMismatch(NodeData startTag)
+   at System.Xml.XmlTextReaderImpl.ParseEndElement()
+   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+   at System.Xml.XmlTextReaderImpl.Read()
+   at System.Xml.Linq.XContainer.ReadContentFrom(XmlReader r)
+   at System.Xml.Linq.XContainer.ReadContentFrom(XmlReader r, LoadOptions o)
+   at System.Xml.Linq.XDocument.Load(XmlReader reader, LoadOptions options)
+   at System.Xml.Linq.XDocument.Parse(String text, LoadOptions options)
+   at RestSharp.Deserializers.XmlDeserializer.Deserialize[T](IRestResponse response)
+   at RestSharp.RestClient.Deserialize[T](IRestRequest request, IRestResponse raw)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-08-13 12:37:50 PM
+HResult:-2146232000 Source:System.Xml Site:Void Throw(System.Exception) Message:The 'meta' start tag on line 11 position 6 does not match the end tag of 'head'. Line 35, position 3.
+ StackTrace:   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.Throw(String res, String[] args)
+   at System.Xml.XmlTextReaderImpl.ThrowTagMismatch(NodeData startTag)
+   at System.Xml.XmlTextReaderImpl.ParseEndElement()
+   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+   at System.Xml.XmlTextReaderImpl.Read()
+   at System.Xml.Linq.XContainer.ReadContentFrom(XmlReader r)
+   at System.Xml.Linq.XContainer.ReadContentFrom(XmlReader r, LoadOptions o)
+   at System.Xml.Linq.XDocument.Load(XmlReader reader, LoadOptions options)
+   at System.Xml.Linq.XDocument.Parse(String text, LoadOptions options)
+   at RestSharp.Deserializers.XmlDeserializer.Deserialize[T](IRestResponse response)
+   at RestSharp.RestClient.Deserialize[T](IRestRequest request, IRestResponse raw)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-03 6:36:44 PM
+HResult:-2147467261 Source:mscorlib Site:Void ReliableEnter(System.Object, Boolean ByRef) Message:Value cannot be null.
+ StackTrace:   at System.Threading.Monitor.ReliableEnter(Object obj, Boolean& lockTaken)
+   at DiscordBot2._0.DiscordBotWorker..ctor(Form1 ControlPannel, String[] _GamesToPlay, Dictionary`2 _SoundBoardBinding) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 156
+   at DiscordBot2._0.Form1._Bu_Connect_Click(Object sender, EventArgs e) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 448
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:40 PM
+HResult:-2147467259 Source:System.Windows.Forms Site:Void ScrollIntoView(Int32) Message:Error HRESULT E_FAIL has been returned from a call to a COM component.
+ StackTrace:   at System.Windows.Forms.UnsafeNativeMethods.ITextRange.ScrollIntoView(Int32 value)
+   at System.Windows.Forms.TextBoxBase.ScrollToCaret()
+   at DiscordBot2._0.Form1._RTB_ConsoleOut_TextChanged(Object sender, EventArgs e) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 627
+   at System.Windows.Forms.Control.OnTextChanged(EventArgs e)
+   at System.Windows.Forms.TextBoxBase.OnTextChanged(EventArgs e)
+   at System.Windows.Forms.TextBoxBase.WmReflectCommand(Message& m)
+   at System.Windows.Forms.TextBoxBase.WndProc(Message& m)
+   at System.Windows.Forms.RichTextBox.WmReflectCommand(Message& m)
+   at System.Windows.Forms.RichTextBox.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:40 PM
+HResult:-2146232798 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Cannot access a disposed object.
+Object name: 'RichTextBox'.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 165
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:40 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 181
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:40 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 181
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:40 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 181
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:40 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 181
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:40 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 181
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:40 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 181
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:40 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 181
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:40 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 181
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:41 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 181
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:41 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 181
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:41 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 181
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:41 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 181
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:41 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 181
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:41 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 181
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:41 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 181
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:41 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 181
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:41 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 181
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:41 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 181
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:41 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 181
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:41 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 181
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:41 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 181
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:41 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 181
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:41 PM
+HResult:-2147467261 Source:System.Windows.Forms Site:Int32 AddInternal(System.Object) Message:Value cannot be null.
+Parameter name: item
+ StackTrace:   at System.Windows.Forms.ListBox.ObjectCollection.AddInternal(Object item)
+   at System.Windows.Forms.ListBox.ObjectCollection.Add(Object item)
+   at DiscordBot2._0.Form1.Form1_Load(Object sender, EventArgs e) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 295
+   at System.Windows.Forms.Form.OnLoad(EventArgs e)
+   at System.Windows.Forms.Form.OnCreateControl()
+   at System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   at System.Windows.Forms.Control.CreateControl()
+   at System.Windows.Forms.Control.WmShowWindow(Message& m)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   at System.Windows.Forms.Form.WmShowWindow(Message& m)
+   at System.Windows.Forms.Form.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:12:41 PM
+HResult:-2147024864 Source:mscorlib Site:Void WinIOError(Int32, System.String) Message:The process cannot access the file 'C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\bin\Release\KillLog.text' because it is being used by another process.
+ StackTrace:   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamWriter.CreateFile(String path, Boolean append, Boolean checkHost)
+   at System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize, Boolean checkHost)
+   at System.IO.StreamWriter..ctor(String path, Boolean append)
+   at System.IO.File.AppendText(String path)
+   at DiscordBot2._0.Program.Retry(Object sender, ThreadExceptionEventArgs e) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Program.cs:line 38
+   at System.Windows.Forms.Application.ThreadContext.OnThreadException(Exception t)
+   at System.Windows.Forms.Control.InvokeMarshaledCallbacks()
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 10:16:17 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 177
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
+<Error>Level:Bad <Exception>Happened at2016-09-13 11:54:55 PM
+HResult:-2146233079 Source:System.Windows.Forms Site:System.Object MarshaledInvoke(System.Windows.Forms.Control, System.Delegate, System.Object[], Boolean) Message:Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+ StackTrace:   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at DiscordBot2._0.Form1._PrintBotStatusOut(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\Form1.cs:line 418
+   at DiscordBot2._0.DiscordBotWorker.ConsoleWrite(String _output, ConsoleWriteType _Type) in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 399
+   at DiscordBot2._0.DiscordBotWorker.<Connect>d__31.MoveNext() in C:\Users\Angelo\Desktop\DiscordBot2.0\DiscordBot2.0\DiscordBotWorkerMainOrigin.cs:line 177
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+ Data:
+ 
+ Help:
