@@ -34,6 +34,10 @@ namespace DiscordBot3._0
         private bool UtiliTree(MessageEventArgs e)
         {
             string[] Args = ArgMaker(e.Message.Text.Remove(0, 2));
+
+            if (Args.Count() < 1)
+                return false;
+
             if (Args[0] == "help")
                 e.Channel.SendMessage("Thanks for asking!:kissing_heart:\nFor utilitie Commands.:wrench:\n!!d4 -> rolls dice\n!!d6 -> rolls dice\n!!d8 -> rolls dice\n!!d10 -> rolls dice\n!!d12 -> rolls dice\n!!d20 -> rolls dice\n!!d100 -> rolls dice\n!!Coinflip -> I flip a coin for you baka:military_medal:\n!!Random -> I roll a random number for you (can be between two numbers):slot_machine:");
             else if (Args.Count() > 2 && Args[0].ToLower() == "animelist")

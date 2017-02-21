@@ -37,6 +37,10 @@ namespace DiscordBot3._0
         {
 
             string[] Args = ArgMaker(e.Message.Text.Remove(0, 2));
+
+            if (Args.Count() < 1)
+                return false;
+
             if (Args[0] == "help")
                 e.Channel.SendMessage("Thanks for asking!:kissing_heart:\nFor chat Commands.:love_letter:\n!~slap -> slap a person(s)\n!~smite -> smite a person(s)\n!~meme list -> Gets key list\n!~meme [key] [Top words] [Bottom words]-> makes a meme");
             else if (Args[0].ToLower() == "meme")

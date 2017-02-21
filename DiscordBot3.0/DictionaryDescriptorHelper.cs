@@ -13,8 +13,13 @@ namespace DiscordBot3._0
             Value = Tagger;
             Descriptor = Discriptor;
         }
-
+        /// <summary>
+        /// the thing to add a tag too
+        /// </summary>
         public T Value { private set; get; }
+        /// <summary>
+        /// A tag to assocate.
+        /// </summary>
         public string Descriptor { private set; get; }
     }
 }

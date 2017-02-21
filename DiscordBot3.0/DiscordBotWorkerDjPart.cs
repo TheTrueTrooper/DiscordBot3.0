@@ -57,6 +57,10 @@ namespace DiscordBot3._0
         private bool MusicTree(MessageEventArgs e)
         {
             string[] Args = ArgMaker(e.Message.Text.Remove(0, 2));
+
+            if (Args.Count() < 1)
+                return false;
+
             if (Args[0].ToLower() == "help")
                 e.Channel.SendMessage("Thanks for asking!:kissing_heart:\nFor DJ Commands.:minidisc:\n!@texttovoice (or ttv)-> Speaks the text aloud\n!@soundboard (or sb)-> plays sounds Note:there is extra help if you enter just =>!@soundboard.\n!@joinchannel -> she will simply join channel\nmore coming soon!");
             else if (Args.Count() == 2 && Args[0].ToLower() == "joinchannel")

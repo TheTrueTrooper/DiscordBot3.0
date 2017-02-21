@@ -14,6 +14,7 @@ using NAudio.Utils;
 using NAudio;
 using NAudio.Wave.SampleProviders;
 using NAudio.Wave.Compression;
+using System.Xml;
 
 namespace DiscordBot3._0
 {
@@ -416,6 +417,14 @@ namespace DiscordBot3._0
                     Saver.Close(); // let the stream go and dispose
                     Saver.Dispose();
                 }
+
+                //using (XmlWriter XWriter = XmlWriter.Create(Environment.CurrentDirectory + "\\Setting.text"))
+                //{
+                //    XWriter.WriteStartDocument();
+                //    XWriter.WriteStartElement("Settings");
+                //    XWriter.WriteStartElement("")
+                //}
+
             }
             catch
             {

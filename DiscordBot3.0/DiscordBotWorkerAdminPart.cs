@@ -30,6 +30,10 @@ namespace DiscordBot3._0
         private bool AdminTree(MessageEventArgs e)
         {
             string[] Args = ArgMaker(e.Message.Text.Remove(0, 2));
+
+            if (Args.Count() < 1)
+                return false;
+
             if (Args[0].ToLower() == "help")
                 e.Channel.SendMessage("Thanks for asking!:kissing_heart:\nFor Admin Commands.:cocktail:\n!#inviteme -> Generates a link to invite her to your server\n!#clean -> Cleans messages (tell it how many)\n!#broadcast -> Broadcast to all channels.\n!#bbroadcast -> Bold broadcast to all channels.\n!#onlinesayhi -> Should Say Hi when on you come online (off / on)");
             else if (Args[0].ToLower() == "inviteme")

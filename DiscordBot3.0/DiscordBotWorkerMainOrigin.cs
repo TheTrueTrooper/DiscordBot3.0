@@ -19,17 +19,47 @@ using RestSharp.Extensions;
 
 
 
+
 namespace DiscordBot3._0
 {
+    class ServerSettings
+    {
+        public ServerSettings(Server s)
+        {
+            _Server = s;
+            SayHello = false;
+            AnnounceChannel = Server.TextChannels.First().Name;
+            LogChannel = null;
+        }
+
+        
+
+        public Server Server { get { return _Server; } }
+
+        Server _Server;
+
+        public ulong ServerID { get { return Server.Id; } }
+
+        public bool SayHello { get; set; }
+
+        public string AnnounceChannel { get; set; }
+
+        public string LogChannel { get; set; }
+    }
+
 
     // the main orign file for
     // has the constructor tick and other basic basic utilities
     partial class DiscordBotWorker
     {
         /// <summary>
+        /// a list of servers for per server
+        /// </summary>
+        SortedDictionary<ulong, ServerSettings> _ServerSettings = new SortedDictionary<ulong, ServerSettings>();
+        /// <summary>
         /// a store of old commands so we can reque them if needed
         /// </summary>
-        Dictionary<ulong, MessageEventArgs> UsersLast = new Dictionary<ulong, MessageEventArgs>();
+        SortedDictionary<ulong, MessageEventArgs> UsersLast = new SortedDictionary<ulong, MessageEventArgs>();
         /// <summary>
         /// a list of game we can play
         /// </summary>
@@ -45,7 +75,7 @@ namespace DiscordBot3._0
         static Random Rand = new Random();
 
         /// <summary>
-        /// 
+        /// the access wraper used for getting at our friend wrapper
         /// </summary>
         public DiscordClient _DiscordClient { private set; get; }
 
@@ -178,6 +208,7 @@ namespace DiscordBot3._0
                 SoundBoardBinding = _SoundBoardBinding;
 
             Connect();
+
         }
 
 
@@ -262,6 +293,9 @@ namespace DiscordBot3._0
                     Radios[s.Id].VoiceSocket?.SendHeartbeat();
             }
 
+            _DiscordClient.Servers.Where(x => !_ServerSettings.ContainsKey(x.Id)).ToList().ForEach(x => _ServerSettings.Add(x.Id, new ServerSettings(x)));
+            //_ServerSettings.Keys.Except(_DiscordClient.Servers.)
+
             UpdateConsole();
         }
 
@@ -292,7 +326,7 @@ namespace DiscordBot3._0
             if (e.Message.IsAuthor)
                   return;
 
-            if (e.Message.Text.First() == '!')
+            if (e.Message.Text.First() == '!' && e.Message.Text.Count() > 1)
             {
 #if !DEBUG
                 if (!e.Message.Text.ToLower().StartsWith("!~chat"))
@@ -342,74 +376,101 @@ namespace DiscordBot3._0
 
         void RoleCreate(object Sender, RoleEventArgs e)
         {
-            if (e.Server.FindChannels("adminlogs", ChannelType.Text, true).ToList().Count == 0)
-                e.Server.CreateChannel("adminlogs", ChannelType.Text);
-            string Admins = "\nAdmins on:";
-            e.Server.Users.Where(x => { return x.Roles.Any(y => y.Permissions.BanMembers || y.Permissions.Administrator) && x.Status.Value == UserStatus.Online; }).ToList().ForEach(x => { Admins += "\n" + x.Name; });
-            e.Server.FindChannels("adminlogs", ChannelType.Text).First().SendMessage("```" + e.Role + " was created at " + DateTime.UtcNow + " utc" + Admins + "```");
+            if (_ServerSettings[e.Server.Id].LogChannel != null)
+            {
+                if (e.Server.FindChannels(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text, true).ToList().Count == 0)
+                    e.Server.CreateChannel(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text);
+                string Admins = "\nAdmins on:";
+                e.Server.Users.Where(x => { return x.Roles.Any(y => y.Permissions.BanMembers || y.Permissions.Administrator) && x.Status.Value == UserStatus.Online; }).ToList().ForEach(x => { Admins += "\n" + x.Name; });
+                e.Server.FindChannels(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text).First().SendMessage("```" + e.Role + " was created at " + DateTime.UtcNow + " utc" + Admins + "```");
+            }
         }
 
         void RoleDelete(object Sender, RoleEventArgs e)
         {
-            if (e.Server.FindChannels("adminlogs", ChannelType.Text, true).ToList().Count == 0)
-                e.Server.CreateChannel("adminlogs", ChannelType.Text);
-            string Admins = "\nAdmins on:";
-            e.Server.Users.Where(x => { return x.Roles.Any(y => y.Permissions.BanMembers || y.Permissions.Administrator) && x.Status.Value == UserStatus.Online; }).ToList().ForEach(x => { Admins += "\n" + x.Name; });
-            e.Server.FindChannels("adminlogs", ChannelType.Text).First().SendMessage("```" + e.Role + " was Deleted at " + DateTime.UtcNow + " utc" + Admins + "```");
+            if (_ServerSettings[e.Server.Id].LogChannel != null)
+            {
+                if (e.Server.FindChannels(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text, true).ToList().Count == 0)
+                    e.Server.CreateChannel(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text);
+                string Admins = "\nAdmins on:";
+                e.Server.Users.Where(x => { return x.Roles.Any(y => y.Permissions.BanMembers || y.Permissions.Administrator) && x.Status.Value == UserStatus.Online; }).ToList().ForEach(x => { Admins += "\n" + x.Name; });
+                e.Server.FindChannels(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text).First().SendMessage("```" + e.Role + " was Deleted at " + DateTime.UtcNow + " utc" + Admins + "```");
+            }
         }
 
         void RoleUpdate(object Sender, RoleUpdatedEventArgs e)
         {
-            if (e.Server.FindChannels("adminlogs", ChannelType.Text, true).ToList().Count == 0)
-                e.Server.CreateChannel("adminlogs", ChannelType.Text);
-            string Admins = "\nAdmins on:";
-            e.Server.Users.Where(x => { return x.Roles.Any(y => y.Permissions.BanMembers || y.Permissions.Administrator) && x.Status.Value == UserStatus.Online; }).ToList().ForEach(x => { Admins += "\n" + x.Name; });
-            e.Server.FindChannels("adminlogs", ChannelType.Text).First().SendMessage("```" + e.Before + " was Updated to "+ e.After + " at " + DateTime.UtcNow + " utc" + Admins + "```");
+            if (_ServerSettings[e.Server.Id].LogChannel != null)
+            {
+                if (_ServerSettings[e.Server.Id].LogChannel != null)
+                {
+                    if (e.Server.FindChannels(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text, true).ToList().Count == 0)
+                        e.Server.CreateChannel(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text);
+                    string Admins = "\nAdmins on:";
+                    e.Server.Users.Where(x => { return x.Roles.Any(y => y.Permissions.BanMembers || y.Permissions.Administrator) && x.Status.Value == UserStatus.Online; }).ToList().ForEach(x => { Admins += "\n" + x.Name; });
+                    e.Server.FindChannels(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text).First().SendMessage("```" + e.Before + " was Updated to " + e.After + " at " + DateTime.UtcNow + " utc" + Admins + "```");
+                }
+            }
         }
 
         void UserBanned(object Sender, UserEventArgs e)
         {
-            if (e.Server.FindChannels("adminlogs", ChannelType.Text, true).ToList().Count == 0)
-                e.Server.CreateChannel("adminlogs", ChannelType.Text);
-            string Admins = "\nAdmins on:";
-            e.Server.Users.Where(x => { return x.Roles.Any(y => y.Permissions.BanMembers || y.Permissions.Administrator) && x.Status.Value == UserStatus.Online; }).ToList().ForEach(x=> { Admins += "\n" + x.Name; });
-            e.Server.FindChannels("adminlogs", ChannelType.Text).First().SendMessage("```" + e.User.Name + " was Banned at " + DateTime.UtcNow + Admins + " utc" + ":hammer:```");
+            if (_ServerSettings[e.Server.Id].LogChannel != null)
+            {
+                if (e.Server.FindChannels(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text, true).ToList().Count == 0)
+                    e.Server.CreateChannel(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text);
+                string Admins = "\nAdmins on:";
+                e.Server.Users.Where(x => { return x.Roles.Any(y => y.Permissions.BanMembers || y.Permissions.Administrator) && x.Status.Value == UserStatus.Online; }).ToList().ForEach(x => { Admins += "\n" + x.Name; });
+                e.Server.FindChannels(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text).First().SendMessage("```" + e.User.Name + " was Banned at " + DateTime.UtcNow + Admins + " utc" + ":hammer:```");
+            }
         }
 
         void UserUnbanned(object Sender, UserEventArgs e)
         {
-            if (e.Server.FindChannels("adminlogs", ChannelType.Text, true).ToList().Count == 0)
-                e.Server.CreateChannel("adminlogs", ChannelType.Text);
-            string Admins = "\nAdmins on:";
-            e.Server.Users.Where(x => { return x.Roles.Any(y => y.Permissions.BanMembers || y.Permissions.Administrator) && x.Status.Value == UserStatus.Online; }).ToList().ForEach(x => { Admins += "\n" + x.Name; });
-            e.Server.FindChannels("adminlogs", ChannelType.Text).First().SendMessage("```" + e.User.Name + " was Unbannedd at " + DateTime.UtcNow + " utc" + Admins + ":hammer:```");
+            if (_ServerSettings[e.Server.Id].LogChannel != null)
+            {
+                if (e.Server.FindChannels(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text, true).ToList().Count == 0)
+                    e.Server.CreateChannel(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text);
+                string Admins = "\nAdmins on:";
+                e.Server.Users.Where(x => { return x.Roles.Any(y => y.Permissions.BanMembers || y.Permissions.Administrator) && x.Status.Value == UserStatus.Online; }).ToList().ForEach(x => { Admins += "\n" + x.Name; });
+                e.Server.FindChannels(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text).First().SendMessage("```" + e.User.Name + " was Unbannedd at " + DateTime.UtcNow + " utc" + Admins + ":hammer:```");
+            }
         }
 
         void ChannelCreated(object Sender, ChannelEventArgs e)
         {
-            if (e.Server.FindChannels("adminlogs", ChannelType.Text, true).ToList().Count == 0)
-                e.Server.CreateChannel("adminlogs", ChannelType.Text);
-            string Admins = "\nAdmins on:";
-            e.Server.Users.Where(x => { return x.Roles.Any(y => y.Permissions.ManageChannels || y.Permissions.Administrator) && x.Status.Value == UserStatus.Online; }).ToList().ForEach(x => { Admins += "\n" + x.Name; });
-            e.Server.FindChannels("adminlogs", ChannelType.Text).First().SendMessage("```" + e.Channel.Name + " was Created at " + DateTime.UtcNow + " utc" + Admins + ":hammer:```");
+            if (_ServerSettings[e.Server.Id].LogChannel != null)
+            {
+                if (e.Server.FindChannels(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text, true).ToList().Count == 0)
+                    e.Server.CreateChannel(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text);
+                string Admins = "\nAdmins on:";
+                e.Server.Users.Where(x => { return x.Roles.Any(y => y.Permissions.ManageChannels || y.Permissions.Administrator) && x.Status.Value == UserStatus.Online; }).ToList().ForEach(x => { Admins += "\n" + x.Name; });
+                e.Server.FindChannels(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text).First().SendMessage("```" + e.Channel.Name + " was Created at " + DateTime.UtcNow + " utc" + Admins + ":hammer:```");
+            }
         }
 
         void ChannelDeleted(object Sender, ChannelEventArgs e)
         {
-            if (e.Server.FindChannels("adminlogs", ChannelType.Text, true).ToList().Count == 0)
-                e.Server.CreateChannel("adminlogs", ChannelType.Text);
-            string Admins = "\nAdmins on:";
-            e.Server.Users.Where(x => { return x.Roles.Any(y => y.Permissions.ManageChannels || y.Permissions.Administrator) && x.Status.Value == UserStatus.Online; }).ToList().ForEach(x => { Admins += "\n" + x.Name; });
-            e.Server.FindChannels("adminlogs", ChannelType.Text).First().SendMessage("```" + e.Channel.Name + " was Deleted at " + DateTime.UtcNow + " utc" + Admins + ":hammer:```");
+            if (_ServerSettings[e.Server.Id].LogChannel != null)
+            {
+                if (e.Server.FindChannels(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text, true).ToList().Count == 0)
+                    e.Server.CreateChannel(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text);
+                string Admins = "\nAdmins on:";
+                e.Server.Users.Where(x => { return x.Roles.Any(y => y.Permissions.ManageChannels || y.Permissions.Administrator) && x.Status.Value == UserStatus.Online; }).ToList().ForEach(x => { Admins += "\n" + x.Name; });
+                e.Server.FindChannels(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text).First().SendMessage("```" + e.Channel.Name + " was Deleted at " + DateTime.UtcNow + " utc" + Admins + ":hammer:```");
+            }
         }
 
         void ChannelUpdated(object Sender, ChannelUpdatedEventArgs e)
         {
-            if (e.Server.FindChannels("adminlogs", ChannelType.Text, true).ToList().Count == 0)
-                e.Server.CreateChannel("adminlogs", ChannelType.Text);
-            string Admins = "\nAdmins on:";
-            e.Server.Users.Where(x => { return x.Roles.Any(y => y.Permissions.ManageChannels || y.Permissions.Administrator) && x.Status.Value == UserStatus.Online; }).ToList().ForEach(x => { Admins += "\n" + x.Name; });
-            e.Server.FindChannels("adminlogs", ChannelType.Text).First().SendMessage("```" + e.Before.Name + " was updated to " + e.After.Name + " at " + DateTime.UtcNow + " utc" + Admins + ":hammer:```");
+            if (_ServerSettings[e.Server.Id].LogChannel != null)
+            {
+                if (e.Server.FindChannels(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text, true).ToList().Count == 0)
+                    e.Server.CreateChannel(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text);
+                string Admins = "\nAdmins on:";
+                e.Server.Users.Where(x => { return x.Roles.Any(y => y.Permissions.ManageChannels || y.Permissions.Administrator) && x.Status.Value == UserStatus.Online; }).ToList().ForEach(x => { Admins += "\n" + x.Name; });
+                e.Server.FindChannels(_ServerSettings[e.Server.Id].LogChannel, ChannelType.Text).First().SendMessage("```" + e.Before.Name + " was updated to " + e.After.Name + " at " + DateTime.UtcNow + " utc" + Admins + ":hammer:```");
+            }
         }
 
         /////////////////////////////////////////////////////////////////////////////utility//////////////////////////////////////////////////////////
