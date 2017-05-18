@@ -19,6 +19,7 @@ using NAudio.Wave;
 using NAudio.CoreAudioApi;
 using NAudio.FileFormats;
 using System.Diagnostics;
+using static DiscordBot3._0.Form1;
 
 namespace DiscordBot3._0
 {
@@ -47,7 +48,7 @@ namespace DiscordBot3._0
         /// <summary>
         /// the nasty over complicated bad practice Look up table
         /// </summary>
-        public Dictionary<string, DictionaryDescriptorHelper<Dictionary<string, List<string>>>> SoundBoardBinding;
+        public SoundBoardList SoundBoardBinding;
 
         /// <summary>
         /// the music Tree for DJ
@@ -131,30 +132,30 @@ namespace DiscordBot3._0
             {
                 string NList = "";
 
-                foreach (KeyValuePair<string, DictionaryDescriptorHelper<Dictionary<string, List<string>>>> s in SoundBoardBinding)
+                foreach (SBCatagories s in SoundBoardBinding)
                 {
-                    NList += "\n" + s.Key + " -> " + s.Value.Descriptor;
+                    NList += "\n" + s.Key + " -> " + s.Desc;
                 }
 
-                Chat.SendMessage("Let me help you with a list!:kissing_heart:\nThere are " + SoundBoardBinding.Keys.Count + " tree(s) to pick from." + NList + "\n!@soundboard list [the tree] -> for more");
+                Chat.SendMessage("Let me help you with a list!:kissing_heart:\nThere are " + SoundBoardBinding.Count + " tree(s) to pick from." + NList + "\n!@soundboard list [the tree] -> for more");
             }
-            else if (Args[1].ToLower() == "list" && SoundBoardBinding.ContainsKey(Args[2].ToLower()))
+            else if (Args[1].ToLower() == "list" && SoundBoardBinding[Args[2].ToLower()] != null)
             {
                 string NList = "";
 
-                foreach (KeyValuePair<string, List<string>> s in SoundBoardBinding[Args[2]].Value)
+                foreach (SBSound s in SoundBoardBinding[Args[2]])
                 {
                     NList += "\n" + s.Key;
                 }
 
-                Chat.SendMessage("Let me help you with a list!:kissing_heart:\nHere is the list for " + SoundBoardBinding[Args[2].ToLower()].Descriptor + "." + NList + "\n!@soundboard [the tree] [the key] -> to play");
+                Chat.SendMessage("Let me help you with a list!:kissing_heart:\nHere is the list for " + SoundBoardBinding[Args[2].ToLower()].Desc + "." + NList + "\n!@soundboard [the tree] [the key] -> to play");
             }
             else if (Args.Count() == 3)
             {
                 if (Join != null)
                 {
-                    if (SoundBoardBinding.ContainsKey(Args[1].ToLower()) && SoundBoardBinding[Args[1].ToLower()].Value.ContainsKey(Args[2].ToLower()))
-                        SendAudioFile(ServerLight, Join, PathGetter.GetSoundBoardPath(SoundBoardBinding[Args[1].ToLower()].Value[Args[2].ToLower()][Rand.Next(SoundBoardBinding[Args[1].ToLower()].Value[Args[2].ToLower()].Count)]));
+                    if (SoundBoardBinding[Args[1].ToLower()] != null && SoundBoardBinding[Args[1].ToLower()][Args[2].ToLower()] != null)
+                        SendAudioFile(ServerLight, Join, PathGetter.GetSoundBoardPath(SoundBoardBinding[Args[1].ToLower()][Args[2].ToLower()][Rand.Next(SoundBoardBinding[Args[1].ToLower()][Args[2].ToLower()].Count)]));
                     else
                         Chat.SendMessage("Sorry but you may have to double check your tree or sound keys");
                 }

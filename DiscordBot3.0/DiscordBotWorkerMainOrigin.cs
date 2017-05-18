@@ -15,10 +15,7 @@ using Discord.Net;
 using System.Timers;
 using Discord.API.Converters;
 using RestSharp.Extensions;
-
-
-
-
+using static DiscordBot3._0.Form1;
 
 namespace DiscordBot3._0
 {
@@ -106,7 +103,7 @@ namespace DiscordBot3._0
         }
 
         public DiscordBotWorker(Form1 ControlPannel, string[] _GamesToPlay,
-            Dictionary<string, DictionaryDescriptorHelper<Dictionary<string, List<string>>>> _SoundBoardBinding)
+            SoundBoardList _SoundBoardBinding)
         {
             _ControlPannel = ControlPannel;
 #if DEBUG
@@ -200,10 +197,10 @@ namespace DiscordBot3._0
 
             //list populating
             ConsoleWrite("Populating lists......");
-            GamesToPlay = new string[1];
+            GamesToPlay = null;
             lock (GamesToPlay)
                 GamesToPlay = GamesToPlay.Concat(_GamesToPlay).ToArray();
-            SoundBoardBinding = new Dictionary<string, DictionaryDescriptorHelper<Dictionary<string, List<string>>>>();
+            SoundBoardBinding = null;
             lock (SoundBoardBinding)
                 SoundBoardBinding = _SoundBoardBinding;
 

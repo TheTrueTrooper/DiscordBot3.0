@@ -15,6 +15,7 @@ using NAudio;
 using NAudio.Wave.SampleProviders;
 using NAudio.Wave.Compression;
 using System.Xml;
+using System.Collections;
 
 namespace DiscordBot3._0
 {
@@ -35,7 +36,7 @@ namespace DiscordBot3._0
         /// <summary>
         /// SoundBoard Catagory bindings saved in the object to be light wieght and kep it stright
         /// </summary>
-        class SBCat
+        public class SBCatagories : IEnumerable<SBSound>
         {
             /// <summary>
             /// Value you will use to call it
@@ -44,17 +45,49 @@ namespace DiscordBot3._0
             /// <summary>
             /// Description for the thing
             /// </summary>
-            public string Dec { private set; get; }
+            public string Desc { private set; get; }
+
+            /// <summary>
+            /// the list of sounds
+            /// </summary>
+            public List<SBSound> Sounds { private set; get; }
+
+            /// <summary>
+            /// Gets the sound by key
+            /// </summary>
+            /// <param name="indexer">the key of the sound</param>
+            /// <returns>the sound that goes to the key or null if not found</returns>
+            public SBSound this[string indexer]
+            {
+                get
+                {
+                    foreach (SBSound S in Sounds)
+                        if (S.Key == indexer)
+                            return S;
+                    return null;
+                }
+            }
+
+            public int Count
+            { get { return Sounds.Count } }
 
             /// <summary>
             /// Creates a catagory
             /// </summary>
             /// <param name="_Key">The key to call it</param>
-            /// <param name="_Dec">The description</param>
-            public SBCat(string _Key, string _Dec)
+            /// <param name="_Desc">The description</param>
+            public SBCatagories(string _Key, string _Desc, List<SBSound> sounds)
             {
                 Key = _Key;
-                Dec = _Dec;
+                Desc = _Desc;
+                Sounds = sounds;
+            }
+
+            public SBCatagories(string _Key, string _Desc)
+            {
+                Key = _Key;
+                Desc = _Desc;
+                Sounds = new List<SBSound>();
             }
 
             /// <summary>
@@ -63,7 +96,7 @@ namespace DiscordBot3._0
             /// <returns>The string to display</returns>
             public override string ToString()
             {
-                return "Key:" + Key + "-:-Dec:" + Dec;
+                return "Key:" + Key + "-:-Dec:" + Desc;
             }
 
             /// <summary>
@@ -73,25 +106,146 @@ namespace DiscordBot3._0
             /// <returns>if the key alreay exists</returns>
             public override bool Equals(object obj)
             {
-                if (!(obj is SBCat)) return false;
-                return this.Key.Equals(((SBCat)obj).Key);
+                if (!(obj is SBCatagories)) return false;
+                return this.Key.Equals(((SBCatagories)obj).Key);
             }
 
             public override int GetHashCode()
             {
                 return base.GetHashCode();
             }
+
+
+            public void XMLWrite(XmlWriter XWriter)
+            {
+                XWriter.WriteStartElement("Catagory");
+                XWriter.WriteElementString("Key", Key);
+                XWriter.WriteElementString("Description", Desc);
+                XWriter.WriteStartElement("Members");
+                foreach (SBSound S in Sounds)
+                {
+                    S.XMLWrite(XWriter);
+                }
+                XWriter.WriteEndElement();
+                XWriter.WriteEndElement();
+            }
+
+            public SBCatagories XMLRead(XmlReader XReader)
+            {
+                try
+                {
+                    SBCatagories Cat = null;
+                    List<SBSound> Sounds = new List<SBSound>();
+                    string Key = null;
+                    string Desc = null;
+                    while (XReader.Read())
+                    {
+                        switch (XReader.NodeType)
+                        {
+                            case XmlNodeType.Element:
+                                switch (XReader.Name)
+                                {
+                                    case "Key":
+                                        Key = XReader.ReadContentAsString();
+                                        break;
+                                    case "Description":
+                                        Desc = XReader.ReadContentAsString();
+                                        break;
+                                    case "Members":
+                                        if (Key == null || Desc == null)
+                                            throw new XmlException("Unexpected Members before Key or Description. Members must come after!");
+                                        Cat = new SBCatagories(Key, Desc, Sounds); // make the obj as we can pass the ref of this to fill
+                                        break;
+                                    case "MemberSound":
+                                        if (Cat == null)
+                                            throw new XmlException("Unexpected Member before before Members, Key, or Description. Members must come after!");
+                                        Sounds.Add(SBSound.XMLRead(XReader, Cat));
+                                        break;
+                                }
+                                break;
+                            case XmlNodeType.EndElement:
+                                if (XReader.Name == "MemberSound")
+                                {
+                                    if (Key != null && Desc != null)
+                                        return Cat;
+                                    else throw new XmlException("Unexpected close of MemberSound. MemberSound is not complete!");
+                                }
+                                break;
+                        }
+                    }
+                }
+                catch (XmlException e)
+                {
+                    throw new XmlException(e.Message, e.InnerException, e.LineNumber, e.LinePosition);
+                }
+                throw new XmlException("Unexpected end of file. Before end of Soundboard");
+            }
+
+            public IEnumerator<SBSound> GetEnumerator()
+            {
+                return ((IEnumerable<SBSound>)Sounds).GetEnumerator();
+            }
+
+            IEnumerator IEnumerable.GetEnumerator()
+            {
+                return ((IEnumerable<SBSound>)Sounds).GetEnumerator();
+            }
+        }
+
+        /// <summary>
+        /// a list of sounds bound
+        /// </summary>
+        public class SoundBoardList : IEnumerable<SBCatagories>
+        {
+            private List<SBCatagories> List = new List<SBCatagories>();
+
+            public int Count
+            { get { return List.Count } }
+
+            void Add(SBCatagories ToAdd)
+            {
+                List.Add(ToAdd);
+            }
+
+            void Remove(SBCatagories ToRemove)
+            {
+                List.Remove(ToRemove);
+            }
+
+            bool Contains(SBCatagories ToCheck)
+            {
+                return List.Contains(ToCheck);
+            }
+
+            public IEnumerator<SBCatagories> GetEnumerator()
+            {
+                return ((IEnumerable<SBCatagories>)List).GetEnumerator();
+            }
+
+            IEnumerator IEnumerable.GetEnumerator()
+            {
+                return ((IEnumerable<SBCatagories>)List).GetEnumerator();
+            }
+
+            public SBCatagories this[string Index]
+            {
+                get
+                {
+                    foreach (SBCatagories Cat in List)
+                        if (Cat.Key == Index)
+                            return Cat;
+                    return null;
+                }
+            }
         }
 
         /// <summary>
         /// SoundBoard bindings saved in the object to be light wieght and kep it stright is linked to the Cats va refs
         /// </summary>
-        class SBSound
+        public class SBSound
         {
-            /// <summary>
-            /// The catagory the thing is called from
-            /// </summary>
-            public SBCat Cat { private set; get; }
+            //the Cat this belongs to
+            public SBCatagories Cat { private set; get; }
             /// <summary>
             /// Value you will use to call it
             /// </summary>
@@ -99,14 +253,15 @@ namespace DiscordBot3._0
             /// <summary>
             /// File name not including The full path Will programaticly generally
             /// </summary>
-            public string File { private set; get; }
+            public List<string> File { private set; get; } = new List<string>();
+
 
             /// <summary>
             /// Creates a sound binding
             /// </summary>
             /// <param name="_Key">The key to call it</param>
             /// <param name="_Dec">The description</param>
-            public SBSound(SBCat _Cat, string _Key, string _File)
+            public SBSound(SBCatagories _Cat, string _Key, string _File)
             {
                 Cat = _Cat;
                 Key = _Key;
@@ -138,6 +293,56 @@ namespace DiscordBot3._0
                 return base.GetHashCode();
             }
 
+            public void XMLWrite(XmlWriter XWriter)
+            {
+
+                //writes the sound board sound keys
+                XWriter.WriteStartElement("MemberSound");
+                XWriter.WriteElementString("Key", Key);
+                XWriter.WriteElementString("File", File);
+                XWriter.WriteEndElement();
+            }
+
+            public static SBSound XMLRead(XmlReader XReader, SBCatagories Cat)
+            {
+                try
+                {
+                    SBSound Sound = null;
+                    string Key = null;
+                    string File = null;
+                    while (XReader.Read())
+                    {
+                        switch (XReader.NodeType)
+                        {
+                            case XmlNodeType.Element:
+                                switch (XReader.Name)
+                                {
+                                    case "Key":
+                                        Key = XReader.ReadContentAsString();
+                                        break;
+                                    case "File":
+                                        File = XReader.ReadContentAsString();
+                                        break;
+                                }
+                                break;
+                            case XmlNodeType.EndElement:
+                                if (XReader.Name == "MemberSound")
+                                {
+                                    if (Key != null && File != null)
+                                        return new SBSound(Cat, Key, File);
+                                    else throw new XmlException("Unexpected close of MemberSound. MemberSound is not complete!");
+                                }
+                                break;
+                        }
+                    }
+                }
+                catch (XmlException e)
+                {
+                    throw new XmlException(e.Message, e.InnerException, e.LineNumber, e.LinePosition);
+                }
+                throw new XmlException("Unexpected end of file. Before end of Soundboard");
+            }
+
         }
 
         /// <summary>
@@ -146,35 +351,9 @@ namespace DiscordBot3._0
         public Dictionary<string, string> MemeList { private set; get; } = new Dictionary<string, string>();
 
         /// <summary>
-        /// To Fetch our over complicated Monstrosity 
-        /// ie Grabs the sound BoardList
+        /// The sound bindings
         /// </summary>
-        public Dictionary<string, DictionaryDescriptorHelper<Dictionary<string, List<string>>>> SoundBoardBinding
-        { get {
-                Dictionary<string, DictionaryDescriptorHelper<Dictionary<string, List<string>>>> Temp = new Dictionary<string, DictionaryDescriptorHelper<Dictionary<string, List<string>>>>();
-                //temp builder
-                // makes a catagory
-                for (int i = 0; i < _LB_SoundBoardSoundsBinder.Items.Count; i++)
-                {
-                    SBSound temp = (SBSound)_LB_SoundBoardSoundsBinder.Items[i];
-                    if (!Temp.ContainsKey(temp.Cat.Key))
-                    {
-                        DictionaryDescriptorHelper<Dictionary<string, List<string>>> t1 = new DictionaryDescriptorHelper<Dictionary<string, List<string>>>(new Dictionary<string, List<string>>(), temp.Cat.Dec);
-                        Temp.Add(temp.Cat.Key, t1);
-                    }
-
-                    // makes a sound binding in cat
-                    if (!Temp[temp.Cat.Key].Value.ContainsKey(temp.Key))
-                    {
-                        List<string> t2 = new List<string>(new List<string>());
-                        Temp[temp.Cat.Key].Value.Add(temp.Key, t2);
-                    }
-
-                    Temp[temp.Cat.Key].Value[temp.Key].Add(temp.File);
-                }
-
-                return Temp;
-            } }
+        public SoundBoardList SoundBindings { private set; get; } = new SoundBoardList();
 
         /// <summary>
         /// Value to set
@@ -306,37 +485,6 @@ namespace DiscordBot3._0
             try
             {
                 //the file is a simple text file so grab a stream reader as it has a nice line by line streamer and a file end bool
-                using (StreamReader Reader = new StreamReader(new FileStream(Environment.CurrentDirectory + "\\SoundBoard.text", FileMode.OpenOrCreate)))
-                {
-                    //as long as we have lines load a line in as a new game item
-                    while (!Reader.EndOfStream)
-                    {
-                        // The lines alternate between keys and their description for catagories so we read alternating lines for them
-                        SBCat Cat = new SBCat(Reader.ReadLine(), Reader.ReadLine());
-                        // this uses the compare (value model) to to see if we have it in the list
-                        // if it is already in the dictionary grab that key and use it to prevent us from using the wrong ref to bind sounds to the key
-                        if (_LB_SoundBoardCatagoryBinder.Items.Contains(Cat))
-                            Cat = (SBCat)_LB_SoundBoardCatagoryBinder.Items[_LB_SoundBoardCatagoryBinder.Items.IndexOf(Cat)];
-                        else // if not add a key as a new uniqe key
-                            _LB_SoundBoardCatagoryBinder.Items.Add(Cat);
-                        // the next we bound a sound with the next two lines and our cat. cat, key, file
-                        SBSound Sound = new SBSound(Cat, Reader.ReadLine(), Reader.ReadLine());
-                        // use our sound to fully bind it
-                        _LB_SoundBoardSoundsBinder.Items.Add(Sound);
-                    }
-                    Reader.Close(); // close the stream for the next app and clean up
-                    Reader.Dispose();
-                }
-
-            }
-            catch
-            {
-                //do Nothing if it fails as this jut means we must rebind on exit
-            }
-
-            try
-            {
-                //the file is a simple text file so grab a stream reader as it has a nice line by line streamer and a file end bool
                 using (StreamReader Reader = new StreamReader(new FileStream(Environment.CurrentDirectory + "\\MemeList.text", FileMode.OpenOrCreate)))
                 {
                     //as long as we have lines load a line in as a new game item
@@ -356,8 +504,31 @@ namespace DiscordBot3._0
                 //do Nothing if it fails as this jut means we must rebind on exit
             }
 
-            //foreach(System.Speech.Synthesis.InstalledVoice R in new System.Speech.Synthesis.SpeechSynthesizer().GetInstalledVoices())
-            //_RTB_ConsoleOut.AppendText(R.VoiceInfo.Name);
+            try
+            {
+                using (XmlReader XReader = XmlReader.Create(File.OpenRead(Environment.CurrentDirectory + "\\Setting.BotConfig")))
+                {
+                    while(XReader.Read())
+                    {
+                        switch(XReader.NodeType)
+                        {
+                            case XmlNodeType.Element:
+                                switch(XReader.Name)
+                                {
+                                    case "BotToken":
+                                        _TB_BotTokenSet.Text = XReader.ReadContentAsString();
+                                        break;
+                                }
+                                break;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+
+            }
+
 
             if (_Crashed)
                 _RTB_ConsoleOut.AppendText("This IS a FULL System crash RESTART! CHECK THE LOGS DING BAT -> "+ Environment.CurrentDirectory + "\\KillLog.text");
@@ -390,21 +561,6 @@ namespace DiscordBot3._0
                     Saver.Close(); // let the stream go and dispose
                     Saver.Dispose();
                 }
-                //grab a file stream for th bindings list
-                using (StreamWriter Saver = File.CreateText(Environment.CurrentDirectory + "\\SoundBoard.text"))
-                {
-                    // write a line for each game
-                    foreach (SBSound s in _LB_SoundBoardSoundsBinder.Items)
-                    {
-                        // for each sound write a line
-                        Saver.WriteLine(s.Cat.Key);
-                        Saver.WriteLine(s.Cat.Dec);
-                        Saver.WriteLine(s.Key);
-                        Saver.WriteLine(s.File);
-                    }
-                    Saver.Close(); // let the stream go and dispose
-                    Saver.Dispose();
-                }
                 using (StreamWriter Saver = File.CreateText(Environment.CurrentDirectory + "\\MemeList.text"))
                 {
                     // write a line for each game
@@ -418,12 +574,18 @@ namespace DiscordBot3._0
                     Saver.Dispose();
                 }
 
-                //using (XmlWriter XWriter = XmlWriter.Create(Environment.CurrentDirectory + "\\Setting.text"))
-                //{
-                //    XWriter.WriteStartDocument();
-                //    XWriter.WriteStartElement("Settings");
-                //    XWriter.WriteStartElement("")
-                //}
+
+
+                using (XmlWriter XWriter = XmlWriter.Create(Environment.CurrentDirectory + "\\Setting.BotConfig"))
+                {
+                    XWriter.WriteStartDocument();
+                    XWriter.WriteStartElement("Settings");
+                    XWriter.WriteAttributeString("BotToken", _TB_BotTokenSet.Text);
+                    XWriter.WriteStartElement("SoundBoard");
+                    foreach (SBCatagories Cat in SoundBindings)
+                        Cat.XMLWrite(XWriter);
+                    XWriter.WriteEndElement();
+                }
 
             }
             catch
@@ -498,7 +660,7 @@ namespace DiscordBot3._0
             }
 
             // connect using this as the control and with the array of games
-            _Client = new DiscordBotWorker(this, temp, SoundBoardBinding);
+            _Client = new DiscordBotWorker(this, temp, SoundBindings);
             Thread.Sleep(200);
 
         }
@@ -728,7 +890,7 @@ namespace DiscordBot3._0
         {
             if (_TB_SoundBoardCatKey.Text != "" && _TB_SoundBoardCatDes.Text != "")
             {
-                SBCat Temp = new SBCat(_TB_SoundBoardCatKey.Text, _TB_SoundBoardCatDes.Text);
+                SBCatagories Temp = new SBCatagories(_TB_SoundBoardCatKey.Text, _TB_SoundBoardCatDes.Text);
                 if (!_LB_SoundBoardCatagoryBinder.Items.Contains(Temp))
                     _LB_SoundBoardCatagoryBinder.Items.Add(Temp);
                 else
@@ -765,7 +927,7 @@ namespace DiscordBot3._0
         {
             if (_LB_SoundBoardCatagoryBinder.SelectedIndex != -1 && _TB_SoundBoardSouCat.Text != "" && _TB_SoundBoardSouFil.Text != "")
             {
-                SBSound Temp = new SBSound((SBCat)_LB_SoundBoardCatagoryBinder.Items[_LB_SoundBoardCatagoryBinder.SelectedIndex], _TB_SoundBoardSouKey.Text, _TB_SoundBoardSouFil.Text);
+                SBSound Temp = new SBSound((SBCatagories)_LB_SoundBoardCatagoryBinder.Items[_LB_SoundBoardCatagoryBinder.SelectedIndex], _TB_SoundBoardSouKey.Text, _TB_SoundBoardSouFil.Text);
                 if (!_LB_SoundBoardSoundsBinder.Items.Contains(Temp) && File.Exists(PathGetter.GetSoundBoardPath(Temp.File)))
                     _LB_SoundBoardSoundsBinder.Items.Add(Temp);
                 else
