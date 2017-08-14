@@ -1,5 +1,5 @@
 Run from DiscordBot3.0.exe
-
+A chat bot/server admin assistant that plays music and manages channels. Discord has currently changed thier server gateway so it requires a rewite and has been deprecated
 Bot Usage 
 -Client Side
 	- Three Different Different output windows
